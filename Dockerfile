@@ -1,9 +1,7 @@
 FROM java:8
 
-ARG JAR_FILE=target/*.jar
-
-COPY ${JAR_FILE} app.jar
-
 EXPOSE 8080
 
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+ADD target/docker-demo.jar docker-demo.jar
+
+ENTRYPOINT ["java", "-jar", "docker-demo.jar"]
